@@ -6,19 +6,20 @@ import Animated, {
   useAnimatedStyle,
   useScrollViewOffset,
 } from 'react-native-reanimated';
+import { View, type ViewProps , ScrollView , Image} from 'react-native';
 
 import { ThemedView } from '@/components/ThemedView';
 
 const HEADER_HEIGHT = 250;
 
 type Props = PropsWithChildren<{
-  headerImage: ReactElement;
+
   headerBackgroundColor: { dark: string; light: string };
 }>;
 
 export default function ParallaxScrollView({
   children,
-  headerImage,
+
   headerBackgroundColor,
 }: Props) {
   const colorScheme = useColorScheme() ?? 'light';
@@ -51,7 +52,18 @@ export default function ParallaxScrollView({
             { backgroundColor: headerBackgroundColor[colorScheme] },
             headerAnimatedStyle,
           ]}>
-          {headerImage}
+
+      <ScrollView horizontal>
+        
+          <Image style={styles.card} source={require("../assets/images/back2.jpg")}></Image>
+          <Image style={styles.card} source={require("../assets/images/back1.jpg")}></Image>
+          <Image style={styles.card} source={require("../assets/images/img2.jpg")}></Image>
+          <Image style={styles.card} source={require("../assets/images/img3.jpg")}></Image>
+          {/* <Image style={styles.card} source={require("../assets/images/img4.avif")}></Image> */}
+        
+      
+      </ScrollView>   
+          
         </Animated.View>
         <ThemedView style={styles.content}>{children}</ThemedView>
       </Animated.ScrollView>
@@ -65,12 +77,37 @@ const styles = StyleSheet.create({
   },
   header: {
     height: 250,
+   
     overflow: 'hidden',
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
   },
   content: {
-    flex: 1,
-    padding: 32,
-    gap: 16,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    flexDirection: "column",
     overflow: 'hidden',
+    backgroundColor: "#20232A"
   },
+  cont: {
+    backgroundColor:"pink",
+    height: 200,
+    width: 380,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    flexDirection: "row",
+    marginTop: 20
+  },
+  card: {
+  
+    height: 190,
+    width: 320,
+    borderRadius: 15,
+    marginTop: 30,
+    marginLeft: 20,
+    marginRight:10
+  }
 });
