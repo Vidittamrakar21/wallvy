@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Platform } from 'react-native';
-import { View, type ViewProps } from 'react-native';
+import { View, type ViewProps , TextInput} from 'react-native';
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
@@ -8,8 +8,11 @@ import { ThemedView } from '@/components/ThemedView';
 export default function HomeScreen() {
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#151718', dark: '#151718' }}
+      headerBackgroundColor={{ light: '#FAF7F0', dark: '#FAF7F0' }}
      >
+   
+    
+
      <View  style = {styles.container}>
      <Image style={styles.card} source={require("../../assets/images/1.jpg")}></Image>
      <Image style={styles.card} source={require("../../assets/images/2.jpeg")}></Image>
@@ -58,19 +61,28 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
   
-    height: 200,
-    width: 380,
+    height: 260,
+    width: 360,
     display: "flex",
     alignItems: "center",
     justifyContent: "space-evenly",
     flexDirection: "row",
-    marginTop: 20,
-    marginBottom: 10
+    marginTop: 6,
+    marginBottom: 1
   },
   card: {
     backgroundColor:"red",
-    height: 200,
+    height: 260,
     width: 170,
     borderRadius: 15
+  },
+  bar:{
+    height: 40,
+    width: 360,
+    marginTop: 30,
+    backgroundColor: "white",
+    borderRadius: 15
   }
+  
+
 });

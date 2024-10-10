@@ -15,14 +15,14 @@ export default function TabLayout() {
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
         headerShown: false,
-        tabBarStyle: { backgroundColor: "#151718", borderTopWidth: 0}
+        tabBarStyle: { backgroundColor: "white", borderTopWidth: 0}
       }}>
       <Tabs.Screen
         name="index"
         options={{
           title: '',
           tabBarIcon: ({ color, focused }) => (
-            <Foundation name="home" size={27} color="gray" />
+            <Foundation name="home" size={27} color="black" />
             // <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
           ),
         }}
@@ -32,7 +32,7 @@ export default function TabLayout() {
         options={{
           title: '',
           tabBarIcon: ({ color, focused }) => (
-            <FontAwesome name="search" size={24} color="gray" />
+            <FontAwesome name="user" size={24} color="black" />
             // <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
           ),
         }}

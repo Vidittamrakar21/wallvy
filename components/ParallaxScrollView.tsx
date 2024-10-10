@@ -1,5 +1,5 @@
 import type { PropsWithChildren, ReactElement } from 'react';
-import { StyleSheet, useColorScheme } from 'react-native';
+import { StyleSheet, useColorScheme , TextInput , Text} from 'react-native';
 import Animated, {
   interpolate,
   useAnimatedRef,
@@ -9,8 +9,9 @@ import Animated, {
 import { View, type ViewProps , ScrollView , Image} from 'react-native';
 
 import { ThemedView } from '@/components/ThemedView';
+import FontAwesome from '@expo/vector-icons/FontAwesome';
 
-const HEADER_HEIGHT = 250;
+const HEADER_HEIGHT = 170;
 
 type Props = PropsWithChildren<{
 
@@ -53,16 +54,23 @@ export default function ParallaxScrollView({
             headerAnimatedStyle,
           ]}>
 
+     <View style={styles.search}>
+     <FontAwesome name="search" size={22} style={styles.icon} color="black" />
+
+      <TextInput style={styles.bar} placeholder='&nbsp; &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Search for photos'/>
+     </View>
       <ScrollView horizontal>
         
-          <Image style={styles.card} source={require("../assets/images/back2.jpg")}></Image>
-          <Image style={styles.card} source={require("../assets/images/back1.jpg")}></Image>
-          <Image style={styles.card} source={require("../assets/images/img2.jpg")}></Image>
-          <Image style={styles.card} source={require("../assets/images/img3.jpg")}></Image>
-          {/* <Image style={styles.card} source={require("../assets/images/img4.avif")}></Image> */}
-        
+      <Text style={styles.card1}>Nature</Text>
+      <Text style={styles.card}>Dark</Text>
+      <Text style={styles.card}>Aesthetic</Text>
+      <Text style={styles.card}>Illustration</Text>
+      <Text style={styles.card}>City</Text>
+      <Text style={styles.card}>Sports</Text>
+      <Text style={styles.card}>Beach</Text>
       
       </ScrollView>   
+
           
         </Animated.View>
         <ThemedView style={styles.content}>{children}</ThemedView>
@@ -74,9 +82,10 @@ export default function ParallaxScrollView({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  
   },
   header: {
-    height: 250,
+    height: 170,
    
     overflow: 'hidden',
     display: "flex",
@@ -89,7 +98,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     flexDirection: "column",
     overflow: 'hidden',
-    backgroundColor: "#20232A"
+    backgroundColor: "#FAF7F0"
   },
   cont: {
     backgroundColor:"pink",
@@ -103,11 +112,60 @@ const styles = StyleSheet.create({
   },
   card: {
   
-    height: 190,
-    width: 320,
-    borderRadius: 15,
+    height: 35,
+    minWidth: 20,
+    borderRadius: 10,
+    marginTop: 30,
+    marginLeft: 10,
+    marginRight:3,
+    backgroundColor: "#FFD18E",
+    color: "black",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 7,
+    
+
+  },
+  card1: {
+  
+    height: 35,
+    minWidth: 20,
+    borderRadius: 10,
     marginTop: 30,
     marginLeft: 20,
-    marginRight:10
+    marginRight:3,
+    backgroundColor: "#FFD18E",
+    color: "black",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    padding: 7
+  },
+  bar:{
+    height: 50,
+    width: 360,
+    marginTop: 30,
+    backgroundColor: "white",
+    borderRadius: 20,
+    borderWidth: 0.4,
+    borderColor: "gray"
+  },
+  search:{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    flexDirection: "row",
+    height: 60,
+    width: 380
+  },
+  icon:{
+    top: 32,
+    left: 25,
+    zIndex:10,
+    position: "absolute",
+   
   }
+
+
 });
