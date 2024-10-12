@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   },
   bar:{
     height: 50,
-    width: 360,
+    width: 340,
     marginTop: 30,
     backgroundColor: "white",
     borderRadius: 20,
@@ -161,7 +161,7 @@ const styles = StyleSheet.create({
   },
   icon:{
     top: 32,
-    left: 25,
+    left: 40,
     zIndex:10,
     position: "absolute",
    

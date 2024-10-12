@@ -1,20 +1,28 @@
 import { Image, StyleSheet, Platform } from 'react-native';
-import { View, type ViewProps , TextInput} from 'react-native';
+import { View, type ViewProps , TextInput , TouchableOpacity} from 'react-native';
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { useRouter } from 'expo-router';
 
 export default function HomeScreen() {
+
+
+  const router = useRouter();
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#FAF7F0', dark: '#FAF7F0' }}
      >
    
+         
     
 
      <View  style = {styles.container}>
-     <Image style={styles.card} source={require("../../assets/images/1.jpg")}></Image>
+     <TouchableOpacity onPress={() => router.push({ pathname: '/ImageDetail', params: { imageUrl: '../../assets/images/1.jpg' } })}>
+          <Image style={styles.card} source={require("../../assets/images/1.jpg")}  />
+          </TouchableOpacity>
      <Image style={styles.card} source={require("../../assets/images/2.jpeg")}></Image>
      </View>
 

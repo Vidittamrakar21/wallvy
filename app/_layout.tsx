@@ -35,8 +35,22 @@ export default function RootLayout() {
     headerStyle: {
       backgroundColor: 'white',
      
+     
     },} } />
+
+<Stack.Screen 
+          name="ImageDetail" 
+          options={{
+            headerShown: true,
+            title: 'Wallvy',
+            headerStyle: {
+              backgroundColor: 'white',
+            },
+          }} 
+        />
+       
         <Stack.Screen name="+not-found" />
+
       </Stack>
     </ThemeProvider>
   );
